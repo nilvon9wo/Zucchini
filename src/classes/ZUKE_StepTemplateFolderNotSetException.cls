@@ -1,0 +1,1 @@
+public class ZUKE_StepTemplateFolderNotSetException extends Exception {}

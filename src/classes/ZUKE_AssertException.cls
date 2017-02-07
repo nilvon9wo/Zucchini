@@ -1,0 +1,1 @@
+public class ZUKE_AssertException extends Exception {}
