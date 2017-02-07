@@ -1,13 +1,16 @@
 /**
 	 *  PREREQUITES:
-	 *		1. Set Zucchini_Settings__r.Step_Class_Template_Folder_Id__c
+	 *      
+	 *		1. In Custom Settings, create a Zucchini Settings Hierarchy.
+	 *     
+	 *      2. Set Zucchini_Settings__r.Step_Class_Template_Folder_Id__c
 	 *			This should be set to the FolderId of a Document folder, so Zucchini can create template Steps.
 	 *
-	 *		2. Create a Feature file using the Gherkin language.
+	 *		3. Create a Feature file using the Gherkin language.
 	 *			Note: Only the basic syntax is currently supported.
 	 *			(e.g. Scenario Outlines, Tables, and PyStrings are NOT supported).
 	 *			
-	 *		3. Upload your Feature file as a Static Resource.
+	 *		4. Upload your Feature file as a Static Resource.
 	 *			(Uploading to Documents or other storage mediums is NOT supported).	 
 	 **/
 
