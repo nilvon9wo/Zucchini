@@ -4,15 +4,15 @@ private class ZUKE_FeatureTest
 	private static final User 	TEST_RUN_USER = TEST_DummyUserFactory.createDefaultTestRunUser();
 
 	@isTest private static void testGetName()
-	{ 
+	{   
 		// GIVEN
 		String 	     dummyName     = 'DummyFeature';
 		ZUKE_Feature targetFeature = new ZUKE_Feature(dummyName, null);
-		
+		 
 		// WHEN
 		String resultName = null;
 		System.runAs(TEST_RUN_USER)
-			{
+		{
 			Test.startTest();
 			{
 				resultName = targetFeature.getName();
@@ -58,7 +58,7 @@ private class ZUKE_FeatureTest
 		String       dummyFeatureName	   = 'DummyFeature';
 		ZUKE_Feature dummyFeature 		   = new ZUKE_Feature(dummyFeatureName, null);
 					 dummyFeature.scenarioList = new List<ZUKE_Scenario>();
-	
+		
 		String		 dummyScenarioName	   = 'Dummy Scenario';
 		String 		 dummyGivenStep 	   = 'Dummy Assumption Step';
 		String 		 dummyWhenStep 		   = 'Dummy Action Step';
@@ -95,8 +95,8 @@ private class ZUKE_FeatureTest
 			{
 				dummyFeature.addToScenarioList(dummyScenarioAsString);
 			}
-	}
-	
+		}
+		
 		// THEN
 		ZUKE_Scenario resultScenario = dummyFeature.scenarioList[0];
 		System.assertEquals(dummyFeature, 				  resultScenario.feature);
@@ -216,7 +216,7 @@ private class ZUKE_FeatureTest
 			Test.startTest();
 			{
 				targetFeature.convert(dummyFeatureBlob);
-	}
+			}
 		}
 		
 		// THEN
@@ -233,7 +233,7 @@ private class ZUKE_FeatureTest
 		String dummyFeatureString = createDummyFeatureString(1, dummyScenarioTest);
 		
 		MockStaticResourceDao1 mockStaticResourceDao = new MockStaticResourceDao1();
-							  mockStaticResourceDao.dummyBodyBlob = Blob.valueOf(dummyFeatureString);
+							   mockStaticResourceDao.dummyBodyBlob = Blob.valueOf(dummyFeatureString);
 
 		ZUKE_Feature.staticResourceDao = mockStaticResourceDao;
 
@@ -273,7 +273,7 @@ private class ZUKE_FeatureTest
 		System.runAs(TEST_RUN_USER)
 		{
 			Test.startTest();
-			{
+			{ 
 				try { result = targetFeature.test(); } 
 				catch (ZUKE_FeatureTestFailuresException ex) { resultFailureExceptionList = ex.getTestFailureExceptionList(); }
 			}
@@ -303,7 +303,7 @@ private class ZUKE_FeatureTest
 	@isTest private static void testTest_failingScenario()   { testTest(false); }
 	@isTest private static void testTest_passingScenario()   { testTest(true ); }
 	@isTest private static void testTest_exceptingScenario() { testTest(null ); }
-	
+
 	// -----------------------------------------------------------
 	
 	@isTest private static void testTest_string()

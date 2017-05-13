@@ -1,8 +1,8 @@
 @isTest
 public class ZUKE_StepListConversionHelperTest 
 {
-	private static final User 			   TEST_RUN_USER       				= TEST_DummyUserFactory.createDefaultTestRunUser();
-
+	private static final User 	TEST_RUN_USER  	   = TEST_DummyUserFactory.createDefaultTestRunUser();
+	
 	private static final ZUKE_Step 		   DUMMY_STEP	        = new ZUKE_MockStepTestStep();
 	private static final String			   DUMMY_FEATURE_NAME   = ((ZUKE_MockStepTestStep) DUMMY_STEP).DUMMY_TARGET_FEATURE_NAME;
 	private static final String			   DUMMY_STEP_AS_STRING = ((ZUKE_MockStepTestStep) DUMMY_STEP).DUMMY_STEP_AS_STRING;

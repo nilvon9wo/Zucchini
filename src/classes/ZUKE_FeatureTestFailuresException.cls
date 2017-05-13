@@ -14,7 +14,7 @@ public class ZUKE_FeatureTestFailuresException extends Exception
 	{
 		for (ZUKE_FeatureTestFailureException testFailureException : testFailureExceptionList)
 		{
-			System.debug(LoggingLevel.ERROR, '!!!!! ' + testFailureException.getMessage()); 
+			System.debug(LoggingLevel.ERROR, '');
 		}
 	}
 }

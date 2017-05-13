@@ -1,6 +1,6 @@
 /**
 	 *  PREREQUITES:
-	 *      
+	 *       
 	 *		1. In Custom Settings, create a Zucchini Settings Hierarchy.
 	 *     
 	 *      2. Set Zucchini_Settings__r.Step_Class_Template_Folder_Id__c

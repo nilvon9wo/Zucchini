@@ -1,5 +1,5 @@
 public virtual class ZUKE_Scenario  
-{
+{ 
 	public static final String SCENARIO_KEYWORD = 'Scenario:';
 	 
 	@testVisible private String	   name;
@@ -8,11 +8,11 @@ public virtual class ZUKE_Scenario
 	@testVisible private ZUKE_Feature    feature;
 				 public  ZUKE_Feature getFeature() { return feature; }
 	
-	@testVisible private String             scenarioAsString; 
+	@testVisible private String    scenarioAsString; 
 				 public  String getScenarioAsString() { return scenarioAsString; }
 
 	@testVisible private List<ZUKE_Step> 	stepList				{ get; set; } 
-	
+	 
 	@testVisible private Map<String, Object> scenarioValuesbyNameMap 	= new Map<String, Object>();
 	public  Map<String, Object> getScenarioValuesbyNameMap() { return scenarioValuesbyNameMap; }
 	 

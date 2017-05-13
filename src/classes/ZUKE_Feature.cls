@@ -3,7 +3,7 @@ public virtual class ZUKE_Feature
 	@testVisible private static ZUKE_StaticResourceDao staticResourceDao = new ZUKE_StaticResourceDao();
 	
 	@testVisible private String    name;
-	public  String getName() { return name; }
+				 public  String getName() { return name; }
 	 
 	@testVisible private String 			 featureAsString;
 	@testVisible private List<ZUKE_Scenario> scenarioList;  
@@ -20,7 +20,7 @@ public virtual class ZUKE_Feature
 		StaticResource resource = staticResourceDao.get(name);
 		convert(resource.body);
 	}
-	
+
 	// ---------------------------------------------------------------------------------------
 	
 	public boolean test()
@@ -42,7 +42,7 @@ public virtual class ZUKE_Feature
 			}
 			
 			if (testFails) 
-			{
+			{ 
 				testFailureExceptionList.add(new ZUKE_FeatureTestFailureException(this, scenario, caughtException));
 			}
 		}
@@ -52,10 +52,10 @@ public virtual class ZUKE_Feature
 		{
 			throw new ZUKE_UnmatchableStepsException(this, unmatchedStepExceptionList);	
 		}
-		
+
 		if (!testFailureExceptionList.isEmpty())
 		{
-			throw new ZUKE_FeatureTestFailuresException(this, testFailureExceptionList);
+			throw new ZUKE_FeatureTestFailuresException(this, testFailureExceptionList); 
 		}
 
 		return true;		
@@ -74,7 +74,7 @@ public virtual class ZUKE_Feature
 		featureAsString = featureResourceBodyBlob.toString();
 		buildScenarioList();
 	}
-	
+	 
 	@testVisible private void buildScenarioList()
 	{
 		if (String.isNotBlank(featureAsString))

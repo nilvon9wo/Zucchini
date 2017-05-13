@@ -117,20 +117,5 @@ public class ZAMP_GetOverconsumptionExceptionThenStep implements ZUKE_Step
 
 		return true;
 	}
-	
-	private void assertRemaining (List<Zucchini__c> zucchiniList)
-	{
-		Integer					  zucchiniListSize = zucchiniList.size();
-
-		if (zucchiniListSize != remainingNumberOfZucchini)
-		{
-			throw new ZUKE_AssertException(
-											'The expected number of remaining Zucchini (' + remainingNumberOfZucchini + ') ' 
-												+ ' does not match the actual number (' + zucchiniListSize + ').'
-										   );
-		}
-	}
-
-
 
 }

@@ -11,7 +11,7 @@ public class ZUKE_ScenarioTest
 		// WHEN
 		String result 			= null;
 		Boolean exceptionCaught = false;
-		System.runAs(TEST_RUN_USER)
+		System.runAs(TEST_RUN_USER) 
 		{
 			Test.startTest();
 			{
@@ -62,13 +62,13 @@ public class ZUKE_ScenarioTest
 	@isTest private static void testSetName_hasNewline() { testSetName(true ); }
 
 	// ----------------------------------------------------------------------------------------------
-	 
+
 	@isTest private static void testGetScenarioValuesbyNameMap()
-	{ 
+	{
 		//GIVEN
 		String dummyKey    = 'Dummy Key';
 		String dummyObject = 'Dummy Object';
-		ZUKE_Scenario targetScenario = new ZUKE_Scenario(null);
+		ZUKE_Scenario targetScenario = new ZUKE_Scenario(null); 
 					  targetScenario.scenarioValuesbyNameMap 	= new Map<String, Object>
 					  {
 					  	dummyKey => dummyObject
@@ -107,11 +107,11 @@ public class ZUKE_ScenarioTest
 		}
 		
 		// WHEN
-		Boolean result          = false;
+		Boolean result           = false;
 		Boolean exceptionCaught  = false;
 		String  exceptionMessage = null;
 		System.runAs(TEST_RUN_USER)
-			{
+		{
 			Test.startTest();
 			{
 				try { result = targetScenario.test(); }
@@ -205,4 +205,4 @@ public class ZUKE_ScenarioTest
 		ZUKE_AssertHelper.assertInstanceOf(mockWhenStep,  resultScenario.stepList[1]);
 		ZUKE_AssertHelper.assertInstanceOf(mockThenStep,  resultScenario.stepList[2]);
 	}
-	}
+}

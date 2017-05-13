@@ -1,7 +1,7 @@
 @isTest
 public class ZUKE_MatchableStepCacheTest 
 {
-	private static final User 		TEST_RUN_USER       		= TEST_DummyUserFactory.createDefaultTestRunUser();
+	private static final User 				TEST_RUN_USER       		= TEST_DummyUserFactory.createDefaultTestRunUser();
 
 	private static final ZUKE_Step 			DUMMY_STEP					= new ZUKE_MockStepTestStep();
 	private static final ZUKE_StepTypeEnum  DUMMY_STEP_TYPE				= ZUKE_StepTypeEnum.GIVEN_STEP;

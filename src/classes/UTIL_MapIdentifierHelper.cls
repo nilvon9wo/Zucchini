@@ -25,8 +25,8 @@ public class UTIL_MapIdentifierHelper
 	}
 
 	public static String create (SObject currentSobject) { return create (currentSobject, true); }
-	public static String create (Attachment attachment)  { return 'Attachment' + concatenate(attachment, new List<String>{ 'name', 'parentId'});  			}
-	public static String create (Contact    contact)	 { return 'Contact'    + concatenate(contact, new List<String>{ 'lastName', 'firstName', 'email'}); }
+	public static String create (Attachment attachment)  { return 'Attachment' + concatenate(attachment, new List<String>{ 'name', 'parentId'});  			   }
+	public static String create (Contact    contact)	 { return 'Contact'    + concatenate(contact,    new List<String>{ 'lastName', 'firstName', 'email'}); }
 	public static String create (Document   document)	 { return 'Document'   + concatenate(document,   new List<String>{ 'name', 'contentType', 'type', 'folderId'}); }
 	public static String create (Zucchini__c   document) { return 'Zucchini__c' + concatenate(document,   new List<String>{ 'name' }); }
 

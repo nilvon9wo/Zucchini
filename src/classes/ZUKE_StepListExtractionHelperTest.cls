@@ -2,7 +2,7 @@
 public class ZUKE_StepListExtractionHelperTest 
 {
 	private static final User 	TEST_RUN_USER  	   = TEST_DummyUserFactory.createDefaultTestRunUser();
-	
+
 	@isTest private static void testThrowMalformedScenerioException() 
 	{
 		// GIVEN
@@ -67,7 +67,7 @@ public class ZUKE_StepListExtractionHelperTest
 											: ('Scenario must use keyword "' +  dummyKeyword  + '" EXACTLY once. ');
 			System.assert(exceptionMessage.contains(expectedMessage));
 		}
-			}
+	}
 	
 	@isTest private static void testValidateKeywordCount_notRequired_0() { testValidateKeywordCount(false, 0); }
 	@isTest private static void testValidateKeywordCount_notRequired_1() { testValidateKeywordCount(false, 1); }
@@ -75,7 +75,7 @@ public class ZUKE_StepListExtractionHelperTest
 	@isTest private static void testValidateKeywordCount_required_0()    { testValidateKeywordCount(true,  0); }
 	@isTest private static void testValidateKeywordCount_required_1()    { testValidateKeywordCount(true,  1); }
 	@isTest private static void testValidateKeywordCount_required_2()    { testValidateKeywordCount(true,  2); }
-
+	
 	// --------------------------------------------------------------------------------------------------------------------	
 
 	private static void testCheckForKeywordAbuse(Boolean hasForbiddenSet, Boolean containsForbidden, Boolean hasNextKeyword) 
@@ -99,7 +99,7 @@ public class ZUKE_StepListExtractionHelperTest
 		Boolean exceptionCaught  = false;
 		String  exceptionMessage = null; 
 		System.runAs(TEST_RUN_USER)
-	{
+		{
 			Test.startTest();
 			{
 				try { targetExtractionHelper.checkForKeywordAbuse(dummyStepsAsString, dummyTargetKeyword, dummyNextKeyword, dummyForbiddenKeywordSet); }
@@ -231,7 +231,7 @@ public class ZUKE_StepListExtractionHelperTest
 	
 	@isTest private static void testSelectBeforeKeyword_noKeyword()  { testSelectBeforeKeyword(false); }
 	@isTest private static void testSelectBeforeKeyword_hasKeyword() { testSelectBeforeKeyword(true);  }
-	
+
 	// --------------------------------------------------------------------------------------------------------------------	
 
 	@isTest private static void testBuildStepDivisionMap_beforeAndAfterStrings() 
@@ -239,13 +239,13 @@ public class ZUKE_StepListExtractionHelperTest
 		// GIVEN
 		String dummyBefore = 'Before';
 		String dummyAfter = 'After';
-		
+
 		ZUKE_StepListExtractionHelper targetExtractionHelper = new ZUKE_StepListExtractionHelper(null);
 		
 		// WHEN
 		Map<String, String> resultDivisionMap = null;
 		System.runAs(TEST_RUN_USER)
-			{
+		{
 			Test.startTest();
 			{
 				 resultDivisionMap = targetExtractionHelper.buildStepDivisionMap(dummyBefore, dummyAfter);
@@ -296,7 +296,7 @@ public class ZUKE_StepListExtractionHelperTest
 		{
 			System.assertEquals(dummyStep1AsString, 	    							 resultDivisionMap.get('before'));
 			System.assertEquals((has1stConjunction) ? dummyPostConjunctionSteps : null,  resultDivisionMap.get('after'));
-	}
+		}
 	}
 	
 	@isTest private static void testBuildStepDivisionMap_remainingStepAsString_bothNull() 	{ testBuildStepDivisionMap_remainingStepAsString( null, null  ); }
@@ -357,14 +357,14 @@ public class ZUKE_StepListExtractionHelperTest
 	@isTest private static void testExtractStepsAsStringList_1step()  { testExtractStepsAsStringList(1); }
 	@isTest private static void testExtractStepsAsStringList_2steps() { testExtractStepsAsStringList(2); }
 	@isTest private static void testExtractStepsAsStringList_0steps() { testExtractStepsAsStringList(0); }
-	
+
 	// --------------------------------------------------------------------------------------------------------------------	
 
 	@isTest private static void testPutStepsAsString() 
 	{
 		// GIVEN
 		Map<ZUKE_StepTypeEnum, List<String>> dummyStepAsStringListByStepTypeMap = new Map<ZUKE_StepTypeEnum, List<String>>();
-
+		
 		ZUKE_StepTypeEnum 					 dummyStepType 						= ZUKE_StepTypeEnum.GIVEN_STEP;
 		String 								 dummyTargetKeyword 				= 'Given';
 		Boolean 							 dummyIsRequired 					= false;
@@ -379,7 +379,7 @@ public class ZUKE_StepListExtractionHelperTest
 																					+ 'Then some final step\n';
 		
 		ZUKE_StepListExtractionHelper targetExtractionHelper = new ZUKE_StepListExtractionHelper(dummyScenario);
-	
+		
 		// WHEN
 		System.runAs(TEST_RUN_USER)
 		{
@@ -403,12 +403,12 @@ public class ZUKE_StepListExtractionHelperTest
 		String 								 dummyGivenStep 				= 'Dummy Assumption Step';
 		String 								 dummyWhenStep 					= 'Dummy Action Step';
 		String 								 dummyThenStep 					= 'Dummy Assertion Step';
-
+		
 		String								 dummyScenario						= 'Scenario: Dummy Scenario'
 																					+ 'Given ' + dummyGivenStep + '\n'
 																					+ 'When '  + dummyWhenStep + '\n'
 																					+ 'Then '  + dummyThenStep + '\n';
-
+		
 		// WHEN
 		Map<ZUKE_StepTypeEnum, List<String>> resultStringListByStepTypeMap = null;
 		System.runAs(TEST_RUN_USER)
@@ -418,14 +418,14 @@ public class ZUKE_StepListExtractionHelperTest
 				if (isStaticTest)
 				{
 					resultStringListByStepTypeMap = ZUKE_StepListExtractionHelper.buildStepListByStepTypeMap(dummyScenario);
-		}
+				}
 				else
 				{
 					ZUKE_StepListExtractionHelper targetExtractionHelper = new ZUKE_StepListExtractionHelper(dummyScenario);
 					resultStringListByStepTypeMap = targetExtractionHelper.doBuildStepListByStepTypeMap();
 				}
 			}
-}
+		}
 		
 		// THEN
 		assertMappedStep (ZUKE_StepTypeEnum.GIVEN_STEP, dummyGivenStep, resultStringListByStepTypeMap);

@@ -3,7 +3,7 @@ public class ZUKE_StepListConversionHelper
 {
 	String 								 featureName;
 	Map<ZUKE_StepTypeEnum, List<String>> stepAsStringListByStepTypeMap;
-	 
+	
 	private static Map<String, List<ZUKE_UnmatchableStepException>> unmatchableStepExceptionByFeatureNameMap = new Map<String,  List<ZUKE_UnmatchableStepException>>();
 	public  static List<ZUKE_UnmatchableStepException> getUnmatchedStepExceptionList(String featureName) { return unmatchableStepExceptionByFeatureNameMap.get(featureName); }
 	 
@@ -19,8 +19,8 @@ public class ZUKE_StepListConversionHelper
 							   return helper.convert();
 	}
 	 
-	@testVisible private List<ZUKE_Step> convert()
-	{
+	@testVisible private List<ZUKE_Step> convert() 
+	{ 
 		List<ZUKE_Step> stepList = new List<ZUKE_Step>(); 
 						addAll(stepList, convert(ZUKE_StepTypeEnum.GIVEN_STEP, stepAsStringListByStepTypeMap.get(ZUKE_StepTypeEnum.GIVEN_STEP)));
 						addAll(stepList, convert(ZUKE_StepTypeEnum.WHEN_STEP,  stepAsStringListByStepTypeMap.get(ZUKE_StepTypeEnum.WHEN_STEP )));
@@ -41,8 +41,8 @@ public class ZUKE_StepListConversionHelper
 		for (String stepAsString : stepAsStringList)
 		{
 			try { stepList.add(convert(stepType, stepAsString)); }
-			catch (ZUKE_UnmatchableStepException e)
-			{
+			catch (ZUKE_UnmatchableStepException e) 
+			{ 
 				addToUnmatchableStepExceptionpByFeatureNameMap(e);
 			}
 		}

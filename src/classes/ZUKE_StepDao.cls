@@ -12,8 +12,8 @@ public virtual class ZUKE_StepDao
 	
 	@testVisible private static List<ZUKE_Step> buildStepList(List<ApexClass> stepClassList)
 	{
-		List<ZUKE_Step> stepList = new List<ZUKE_Step>(); 
-		for (ApexClass stepClass : stepClassList)
+		List<ZUKE_Step> stepList = new List<ZUKE_Step>();
+		for (ApexClass stepClass : stepClassList) 
 		{
 			try { stepList.add(get(stepClass.name)); }
 			catch (Exception e) 						// Classes which can't be cast ZUKE_Step will be ignored. 
@@ -26,7 +26,7 @@ public virtual class ZUKE_StepDao
 	
 	public static ZUKE_Step get(String stepClassName)
 	{
-		Type stepClassType = Type.forName(stepClassName);
+		Type      stepClassType = Type.forName(stepClassName);
 		
 		ZUKE_Step step          = (ZUKE_Step) stepClassType.newInstance();
 		   return step;

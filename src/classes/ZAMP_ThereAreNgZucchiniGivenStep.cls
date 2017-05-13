@@ -59,7 +59,8 @@ public class ZAMP_ThereAreNgZucchiniGivenStep implements ZUKE_Step
 		return new List<String>
 		{
 			// Original: '^There are 12 zucchini$'
-			'^There are (\\d+) zucchini$'
+			'^There are (\\d+) zucchini$',
+			'^We have (\\d+) cucumber-like vegetables'
 		};
 	}
 

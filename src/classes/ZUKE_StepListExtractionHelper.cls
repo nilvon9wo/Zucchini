@@ -10,7 +10,7 @@ public class ZUKE_StepListExtractionHelper
 	
 	public static Map<ZUKE_StepTypeEnum, List<String>> buildStepListByStepTypeMap(String scenarioAsString) 
 	{
-		ZUKE_StepListExtractionHelper helper   = new ZUKE_StepListExtractionHelper(scenarioAsString);
+		ZUKE_StepListExtractionHelper        helper  = new ZUKE_StepListExtractionHelper(scenarioAsString);
 		Map<ZUKE_StepTypeEnum, List<String>> listMap = helper.doBuildStepListByStepTypeMap(); 
 	 						          return listMap;
 	}
@@ -22,12 +22,12 @@ public class ZUKE_StepListExtractionHelper
 		putStepsAsString (stepAsStringListByStepTypeMap, ZUKE_StepTypeEnum.GIVEN_STEP, 'Given', false, 'When', new Set<String>{ 'Then'          });
 		putStepsAsString (stepAsStringListByStepTypeMap, ZUKE_StepTypeEnum.WHEN_STEP,  'When',  true,  'Then', new Set<String>{ 'Given'         });
 		putStepsAsString (stepAsStringListByStepTypeMap, ZUKE_StepTypeEnum.THEN_STEP,  'Then',  true,  null  , new Set<String>{ 'Given', 'When' });
-		
-		return stepAsStringListByStepTypeMap;
+
+		  		  return stepAsStringListByStepTypeMap;
 	}
 
 	// -----------------------------------------------------------------------------------------------	
-	
+
 	@testVisible private void putStepsAsString(Map<ZUKE_StepTypeEnum, List<String>> stepAsStringListByStepTypeMap, ZUKE_StepTypeEnum stepType, String targetKeyword, Boolean isRequired, String nextKeyword, Set<String> forbiddenKeywordSet)
 	{
 		String stepsAsString = extractStepsAsString(targetKeyword, false, nextKeyword, forbiddenKeywordSet);
@@ -53,7 +53,7 @@ public class ZUKE_StepListExtractionHelper
 
 			checkForKeywordAbuse(stepsAsString, targetKeyword, nextKeyword, forbiddenKeywordSet);
 		}
-		
+
 		return stepsAsString;
 	}
 	
@@ -123,7 +123,7 @@ public class ZUKE_StepListExtractionHelper
 		
 		if      (!hasAnd && !hasBut) { return buildStepDivisionMap(remainingStepsAsString, null	); }
 		else if (!hasAnd || !hasBut) { return (hasAnd) ? stringBeforeAndMap : stringBeforeButMap;  }
-
+		
 		Integer beforeAndLength = stringBeforeAndMap.get('before').length();
 		Integer beforeButLength = stringBeforeButMap.get('before').length();
   		return (beforeAndLength < beforeButLength) ? stringBeforeAndMap : stringBeforeButMap;
@@ -139,7 +139,7 @@ public class ZUKE_StepListExtractionHelper
 						'after'  => ((splitList.size() > 1) ? (splitList[1].trim()) : null) 
 					};
 	}
-
+	
 	@testVisible private Map<String, String> buildStepDivisionMap(String beforeString, String afterString)
 	{
 			return new Map<String, String>

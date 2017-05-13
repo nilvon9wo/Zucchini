@@ -1,7 +1,7 @@
 public class ZUKE_StepTemplateHelper 
 {
 	@testVisible private static final Id ZUCCHINI_STEP_CLASS_TEMPLATE_FOLDER_ID;
-	
+	 
 	static
 	{
 		if (ZUCCHINI_STEP_CLASS_TEMPLATE_FOLDER_ID == null)

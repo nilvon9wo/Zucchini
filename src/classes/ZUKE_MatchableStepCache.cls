@@ -16,7 +16,7 @@ public class ZUKE_MatchableStepCache
 		}
 		return stepByRegexByFeatureTypeMapSingleton;
 	}
-	
+
 	public static ZUKE_Step get(String targetFeatureName, ZUKE_StepTypeEnum stepType, String stepAsString)
 	{
 		Map<String, Map<String, ZUKE_Step>> stepByRegexByFeatureTypeMap = getStepByRegexByFeatureTypeMap();
@@ -31,7 +31,7 @@ public class ZUKE_MatchableStepCache
 				? initializeStep (matchingStep, stepAsString)
 				: null;
 	}
-	
+	 
 	@testVisible private static ZUKE_Step get(Map<String, ZUKE_Step> stepByRegexMap, String stepAsString)
 	{
 		ZUKE_Step matchingStep = null;
@@ -49,7 +49,7 @@ public class ZUKE_MatchableStepCache
 					); 
 				}
 			}
-		} 
+		}
 		return matchingStep;
 	}
 	
@@ -61,10 +61,10 @@ public class ZUKE_MatchableStepCache
 			   	  step.initialize(stepAsString);						// We leave it to step implementations to determine how to extract values and match them to internal values.
 		   return step; 
 	}
-
+	
 	@testVisible private Map<String, Map<String, ZUKE_Step>> buildStepByRegexByFeatureTypeNameMap(ZUKE_StepDao stepDao, Map<String, Map<String, ZUKE_Step>> stepByRegexByFeatureTypeMap)
 	{
-		List<ZUKE_Step> stepList = stepDao.getList();
+		List<ZUKE_Step> stepList = stepDao.getList(); 
 		for (ZUKE_Step step : stepList)
 		{
 			String      targetFeatureTypeKey  = getFeatureTypeKey(step);
@@ -76,7 +76,7 @@ public class ZUKE_MatchableStepCache
 		}
 		return stepByRegexByFeatureTypeMap;
 	}
-	
+
 	@testVisible private static void buildStepByRegexMap(Map<String, ZUKE_Step> stepByRegexMap, String targetFeatureTypeName, ZUKE_Step step)
 	{
 		List<String> matchableRegexList = step.getMatchableRegexList();
@@ -98,7 +98,7 @@ public class ZUKE_MatchableStepCache
 			}
 		}
 	}
-	
+	 
 	// --------------------------------------------
 	
 	@testVisible private static String getFeatureTypeKey (ZUKE_Step step)
